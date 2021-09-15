@@ -1,0 +1,4 @@
+inquirerpy==0.2.4
+pyfiglet==0.8.post1
+pandas==1.2.4
+numpy==1.21.1
