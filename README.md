@@ -34,8 +34,63 @@ If you're curious of how I created the model, you can take a look at my predicti
 <br>
 
 # RESTful API Based Model Inference
-Work still on progress
+Make sure you have installed the following packages listed on `requirements.txt`. Run this command to install the packages.
+```
+cd student-performance/deployment
+pip install -r requirements.txt
+```
+Or simply just follow the Installation steps above.
 
+<br>
+
+How to run:
+```
+cd deployment
+uvicorn app:app --reload
+```
+Go to browser and visit `http://127.0.0.1:8000`
+<br><br>
+
+## Available API
+```
+GET /predict?gender=male&race=group E&parental_edu=master's degree&lunch=standard&test_prep=completed&math_score=88&read_score=65&write_score=92
+```
+```
+POST /predict
+```
+| Parameter/Body | Type | Available Value | Description |
+| --------- | ---- | ---------------- | ----------- |
+| `gender`  | `string` | Male, Female  | Student's gender.
+| `race`    | `string` | group A, group B, ... group E  | Student's race/ethnicity.
+| `parental_edu`    | `string` | Master's Degree, Bachelor's Degree, Associate's Degree, Some College, High School, Some High School  | Student's parent education level.
+| `lunch`    | `string` | Standard, Free/reduced  | Student's lunch type.
+| `test_prep`    | `string` | Completed, None  | Student's taking test preparation course status.
+| `math_score`    | `int` | 0-100  | Student's Math subject score.
+| `read_score`    | `int` | 0-100  | Student's Reading subject score.
+| `write_score`    | `int` | 0-100  | Student's Writing subject score.
+
+The API available in 2 methods `POST` and `GET`. Both using the same path `/predict` and using the same list parameters. For the `GET` method, you should insert parameter as **Query Parameter**, while for the `POST` method, you have to insert parameter as **Request Body**.
+
+<br>
+
+## Responses
+```
+{
+    "predicted_score": 81.66666666666667
+}
+```
+
+<br>
+
+## Example
+- **curl**
+```
+curl -X POST "http://0.0.0.0:8000/predict" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"gender\":\"male\",\"race\":\"group E\",\"parental_edu\":\"master's degree\",\"lunch\":\"standard\",\"test_prep\":\"completed\",\"math_score\":88,\"read_score\":65,\"write_score\":92}"
+```
+- **Postman**
+![postman example](./screenshot/postman.png)
+
+<br>
 <br>
 
 # Get in Touch
@@ -44,4 +99,5 @@ If you are interested to give me any suggestions, comments, or discuss projects,
 - Mail: fahri.lafa@gmail.com
 - Linkedin: https://www.linkedin.com/in/affandyfahrizain/
 
-Thank you!
+
+### Thank you!
