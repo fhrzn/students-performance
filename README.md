@@ -18,14 +18,14 @@ I'm also made a simple CLI-based model inference where you can try to run this m
 ![screenshot](./screenshot/ss.png)
 
 ## Installation
-```
+```bash
 git clone https://github.com/affand20/students-performance
 cd student-performance/deployment
 pip install -r requirements.txt
 ```
 
 ## Run Model Inference
-```
+```bash
 python3 cli.py
 ```
 
@@ -35,7 +35,7 @@ If you're curious of how I created the model, you can take a look at my predicti
 
 # RESTful API Based Model Inference
 Make sure you have installed the following packages listed on `requirements.txt`. Run this command to install the packages.
-```
+```bash
 cd student-performance/deployment
 pip install -r requirements.txt
 ```
@@ -44,7 +44,7 @@ Or simply just follow the Installation steps above.
 <br>
 
 How to run:
-```
+```bash
 cd deployment
 uvicorn app:app --reload
 ```
@@ -52,10 +52,10 @@ Go to browser and visit `http://127.0.0.1:8000`
 <br><br>
 
 ## Available API
-```
+```http
 GET /predict?gender=male&race=group E&parental_edu=master's degree&lunch=standard&test_prep=completed&math_score=88&read_score=65&write_score=92
 ```
-```
+```http
 POST /predict
 ```
 | Parameter/Body | Type | Available Value | Description |
@@ -74,7 +74,7 @@ The API available in 2 methods `POST` and `GET`. Both using the same path `/pred
 <br>
 
 ## Responses
-```
+```json
 {
     "predicted_score": 81.66666666666667
 }
@@ -84,7 +84,7 @@ The API available in 2 methods `POST` and `GET`. Both using the same path `/pred
 
 ## Example
 - **curl**
-```
+```bash
 curl -X POST "http://0.0.0.0:8000/predict" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"gender\":\"male\",\"race\":\"group E\",\"parental_edu\":\"master's degree\",\"lunch\":\"standard\",\"test_prep\":\"completed\",\"math_score\":88,\"read_score\":65,\"write_score\":92}"
 ```
 - **Postman**
