@@ -29,7 +29,7 @@ pip install -r requirements.txt
 python3 cli.py
 ```
 
-If you're curious of how I created the model, you can take a look at my prediction notebook at `notebook` folders or just click [here](#)
+If you're curious of how I created the model, you can take a look at my prediction notebook at `notebook` folders or just click [here](https://github.com/affand20/students-performance/blob/master/notebooks/students-performance-prediction.ipynb)
 
 <br>
 
