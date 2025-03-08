@@ -1,5 +1,8 @@
-inquirerpy==0.2.4
-pyfiglet==0.8.post1
-pandas==1.2.4
-numpy==1.21.1
-fastapi==0.68.1
+inquirerpy
+pyfiglet
+pandas
+numpy
+fastapi
+scikit-learn
+seaborn
+streamlit
